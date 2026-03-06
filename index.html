@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakshatra | Post-Production Specialist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root {
+--primary-gold: #D4AF37;
+--navy-deep: #050b18;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+background-color: var(--navy-deep);
+color: #ffffff;
+scroll-behavior: smooth;
+}
+.font-bebas {
+font-family: 'Bebas Neue', sans-serif;
+letter-spacing: 0.05em;
+}
+.font-cinzel {
+font-family: 'Cinzel', serif;
+}
+.text-gold {
+color: var(--primary-gold);
+}
+/* High Intensity Glow for Brand Name */
+.brand-glow {
+color: var(--primary-gold);
+text-shadow: 0 0 10px rgba(212, 175, 55, 0.8),
+0 0 20px rgba(212, 175, 55, 0.4),
+0 0 30px rgba(212, 175, 55, 0.2);
+}
+/* Subtle Glow for Section Headings */
+.section-glow {
+color: var(--primary-gold);
+text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+/* Enhanced Golden Button Highlight */
+.button-highlight {
+background-color: var(--primary-gold) !important;
+color: #000000 !important;
+box-shadow: 0 0 20px rgba(212, 175, 55, 0.6),
+0 0 40px rgba(212, 175, 55, 0.2);
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.button-highlight:hover {
+box-shadow: 0 0 35px rgba(212, 175, 55, 0.9),
+0 0 60px rgba(212, 175, 55, 0.3);
+background-color: #ffffff !important;
+transform: scale(1.02);
+}
+.cinematic-gradient {
+background: linear-gradient(180deg, rgba(5,11,24,0.6) 0%, rgba(5,11,24,1) 100%);
+}
+.service-card {
+background: rgba(15, 23, 42, 0.6);
+border: 1px solid rgba(255, 255, 255, 0.05);
+transition: all 0.3s ease;
+}
+.service-card:hover {
+border-color: var(--primary-gold);
+transform: translateY(-5px);
+background: rgba(30, 41, 59, 0.8);
+}
+.note-highlight {
+background: rgba(212, 175, 55, 0.05);
+border-left: 3px solid var(--primary-gold);
+}
+.hero-bg {
+background-image: url('https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?q=80&w=1170&auto=format&fit=crop');
+background-size: cover;
+background-position: center;
+}
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- Header / Navigation -->
+<nav class="fixed w-full z-50 bg-[#050b18]/90 backdrop-blur-md border-b border-white/5">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="font-cinzel text-2xl tracking-tighter uppercase flex items-baseline">
+<span class="font-black brand-glow">Nakshatra</span>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="relative h-[85vh] flex items-center justify-center hero-bg">
+<div class="absolute inset-0 cinematic-gradient"></div>
+<div class="relative z-10 text-center px-6 max-w-5xl">
+<h1 class="font-cinzel mb-8 leading-tight">
+<span class="block text-6xl md:text-8xl font-black brand-glow tracking-tighter uppercase">NAKSHATRA</span>
+<span class="block text-2xl md:text-3xl font-light text-gold brand-glow tracking-[0.6em] mt-2 uppercase">CINEMATICS</span>
+</h1>
+<div class="w-32 h-[2px] bg-gold mx-auto mb-10 shadow-[0_0_15px_#D4AF37]"></div>
+<p class="text-xs md:text-base font-light text-slate-300 mb-8 max-w-4xl mx-auto uppercase tracking-[0.25em] leading-relaxed text-center">
+From vision to revision, from timeline to perfection,<br>
+we craft every frame with passion, precision, and direction.
+</p>
+</div>
+</section>
+
+<!-- Content Sections -->
+<main class="max-w-7xl mx-auto px-6 py-20">
+
+<!-- 1. SHORT-FORM & MOTION CONTENT -->
+<section id="services" class="mb-32">
+<div class="flex items-center space-x-4 mb-12 border-b border-white/10 pb-6">
+<h2 class="font-bebas text-5xl section-glow">1. Short-Form & Motion</h2>
+<span class="text-gold/50"><i data-lucide="zap"></i></span>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="service-card p-8 rounded-xl flex flex-col h-full shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Reels Editing</h3>
+<p class="text-gold text-xs font-bold mb-4 uppercase tracking-widest">High-Retention Social Content</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(High-retention, subtitles, SFX, and color grading included)
+</div>
+<div class="mt-auto">
+<div class="mb-4">
+<span class="text-[10px] uppercase text-slate-500 block">Price Slot</span>
+<span class="text-2xl font-bebas">₹1,500 — ₹4,000 <small class="text-xs">/ Reel</small></span>
+</div>
+<div class="note-highlight p-4 text-[11px] text-slate-300 italic">
+<strong>Note:</strong> Pricing depends on complexity and duration.
+</div>
+</div>
+</div>
+
+<div class="service-card p-8 rounded-xl flex flex-col h-full shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Motion Posters</h3>
+<p class="text-gold text-xs font-bold mb-4 uppercase tracking-widest">Dynamic Visual Promos</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(Cinematic Animation, Key Visual Effects, Depth Creation, Digital Painting Integration)
+</div>
+<div class="mt-auto">
+<div class="mb-4">
+<span class="text-[10px] uppercase text-slate-500 block">Price Slot</span>
+<span class="text-2xl font-bebas">₹2,000 — ₹5,000 <small class="text-xs">/ Poster</small></span>
+</div>
+<div class="note-highlight p-4 text-[11px] text-slate-300 italic">
+<strong>Note:</strong> Source files included for premium tier.
+</div>
+</div>
+</div>
+
+<div class="service-card p-8 rounded-xl flex flex-col h-full shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Motion Graphics</h3>
+<p class="text-gold text-xs font-bold mb-4 uppercase tracking-widest">30 Second High-End Visuals</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(Typography, 2D elements, and branding assets)
+</div>
+<div class="mt-auto">
+<div class="mb-4">
+<span class="text-[10px] uppercase text-slate-500 block">Price Slot</span>
+<span class="text-2xl font-bebas">₹2,000 — ₹6,000 <small class="text-xs">/ 30s</small></span>
+</div>
+<div class="note-highlight p-4 text-[11px] text-slate-300 italic">
+<strong>Note:</strong> Revisions beyond limit charged separately.
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 2. PODCAST & STANDUP SHOWS -->
+<section class="mb-32">
+<div class="flex items-center space-x-4 mb-12 border-b border-white/10 pb-6">
+<h2 class="font-bebas text-5xl section-glow">2. Podcast & Standup Shows</h2>
+<span class="text-gold/50"><i data-lucide="mic"></i></span>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="service-card p-8 rounded-xl flex flex-col h-full shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Podcast Production</h3>
+<p class="text-gold text-xs font-bold mb-4 uppercase tracking-widest">1 to 2 Hours Master Session</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(Includes 3-Camera 4K Setup + Professional Audio + Multi-cam Edit)
+</div>
+<div class="mt-auto">
+<div class="mb-4">
+<span class="text-[10px] uppercase text-slate-500 block">Price Slot</span>
+<span class="text-2xl font-bebas">₹15,000 — ₹25,000 <small class="text-xs">/ Episode</small></span>
+</div>
+<div class="note-highlight p-4 text-[11px] text-slate-300 italic">
+<strong>Note:</strong> Promotional Reels from the podcast will be charged at ₹1,000 per Reel (Extra).
+</div>
+</div>
+</div>
+
+<div class="service-card p-8 rounded-xl flex flex-col h-full shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Standup Show</h3>
+<p class="text-gold text-xs font-bold mb-4 uppercase tracking-widest">Full Set Coverage</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(Includes Equipment Rentals + Venue Audio Sync + Final Master Cut)
+</div>
+<div class="mt-auto">
+<div class="mb-4">
+<span class="text-[10px] uppercase text-slate-500 block">Price Slot</span>
+<span class="text-2xl font-bebas">₹25,000 — ₹45,000 <small class="text-xs">/ Show</small></span>
+</div>
+<div class="note-highlight p-4 text-[11px] text-slate-300 italic">
+<strong>Note:</strong> Crowd-work/Promo Reels will be charged at ₹1,000 per Reel (Extra).
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3. POST-PRODUCTION & SOUND -->
+<section class="mb-32">
+<div class="flex items-center space-x-4 mb-12 border-b border-white/10 pb-6">
+<h2 class="font-bebas text-5xl section-glow">3. Post-Production & Sound</h2>
+<span class="text-gold/50"><i data-lucide="music"></i></span>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="service-card p-6 rounded-xl shadow-xl text-center">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Storyboarding</h3>
+<div class="text-slate-500 text-[10px] italic mb-4">(Visual Pre-viz)</div>
+<div class="mb-4">
+<span class="text-lg font-bebas">₹500 — ₹1,200</span>
+</div>
+</div>
+<div class="service-card p-6 rounded-xl shadow-xl text-center">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Sound Design</h3>
+<div class="text-slate-500 text-[10px] italic mb-4">(SFX & Foley)</div>
+<div class="mb-4">
+<span class="text-lg font-bebas">₹20,000 — ₹60,000</span>
+</div>
+</div>
+<div class="service-card p-6 rounded-xl shadow-xl text-center">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Audio Mixing</h3>
+<div class="text-slate-500 text-[10px] italic mb-4">(Leveling & EQ)</div>
+<div class="mb-4">
+<span class="text-lg font-bebas">₹8,000 — ₹55,000</span>
+</div>
+</div>
+<div class="service-card p-6 rounded-xl border-gold/30 bg-slate-900/40 text-center">
+<h3 class="font-bebas text-3xl mb-4 section-glow">DOLBY Spatial Audio</h3>
+<div class="text-slate-500 text-[10px] italic mb-4">(Cinematic Standards)</div>
+<div class="mb-4">
+<span class="text-lg font-bebas">₹1,500 / min</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 4. FULL-SCALE PRODUCTION -->
+<section class="mb-32">
+<div class="flex items-center space-x-4 mb-12 border-b border-white/10 pb-6">
+<h2 class="font-bebas text-5xl section-glow">4. Full-Scale Production</h2>
+<span class="text-gold/50"><i data-lucide="film"></i></span>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="service-card p-8 rounded-xl border-l-4 border-gold shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Commercials & Ad Films</h3>
+<div class="space-y-6">
+<div>
+<p class="font-bold text-sm uppercase">Commercial / Brand Film</p>
+<span class="text-2xl font-bebas">Starting from ₹55,000</span>
+</div>
+<div>
+<p class="font-bold text-sm uppercase">Short Film / Music Video</p>
+<span class="text-2xl font-bebas">Starting from ₹65,000+</span>
+</div>
+<div class="text-slate-400 text-xs italic mt-4">
+(Comprehensive Pre-Production, Shoot, and Post-Production Management)
+</div>
+</div>
+</div>
+
+<div class="service-card p-8 rounded-xl bg-gradient-to-br from-slate-800/40 to-transparent shadow-2xl">
+<h3 class="font-bebas text-3xl mb-4 section-glow">Production Management</h3>
+<p class="font-bold text-sm uppercase">Logistic & Crew Coordination</p>
+<div class="text-slate-400 text-sm italic mb-6 leading-relaxed">
+(Managing equipment rentals, crew hiring, location scouting, and timeline oversight)
+</div>
+<div class="mt-auto">
+<span class="text-4xl font-bebas">10% — 15%</span>
+<div class="text-[10px] uppercase mt-1 text-slate-400">Of total budget</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio Gallery -->
+<section id="work" class="mb-32">
+<!-- Updated heading with Drive Link -->
+<a href="https://drive.google.com/drive/folders/16ivqzz1Q0gcTqWEcUwUzpLNX8Frj-7KO?usp=sharing" target="_blank" class="block text-center group cursor-pointer no-underline">
+<h2 class="font-bebas text-6xl mb-4 section-glow group-hover:brand-glow transition-all duration-300">Portfolio Gallery</h2>
+<p class="text-slate-400 mb-12 max-w-xl mx-auto group-hover:text-gold transition-colors">Updated selection of our cinematic projects. Click to explore our archives on Google Drive.</p>
+</a>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group relative aspect-video overflow-hidden rounded-lg bg-slate-900 shadow-2xl">
+<img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800" alt="Cinematic Work" class="w-full h-full object-cover opacity-60">
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-[#050b18]/80 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-white font-bebas text-xl mb-2">Cinematic Short</span>
+<!-- Updated Play Demo with Drive Link -->
+<a href="https://drive.google.com/drive/folders/16ivqzz1Q0gcTqWEcUwUzpLNX8Frj-7KO?usp=sharing" target="_blank" class="px-4 py-1 bg-gold text-black text-[10px] font-bold uppercase rounded hover:bg-white transition">Play Demo</a>
+</div>
+</div>
+<div class="group relative aspect-video overflow-hidden rounded-lg bg-slate-900 shadow-2xl">
+<img src="https://images.unsplash.com/photo-1598897349489-3d00164018ec?auto=format&fit=crop&q=80&w=800" alt="Podcast Work" class="w-full h-full object-cover opacity-60">
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-[#050b18]/80 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-white font-bebas text-xl mb-2">Podcast Episode</span>
+<!-- Updated Play Demo with Drive Link -->
+<a href="https://drive.google.com/drive/folders/16ivqzz1Q0gcTqWEcUwUzpLNX8Frj-7KO?usp=sharing" target="_blank" class="px-4 py-1 bg-gold text-black text-[10px] font-bold uppercase rounded hover:bg-white transition">Play Demo</a>
+</div>
+</div>
+<!-- Updated Full Portfolio Button with Drive Link -->
+<a href="https://drive.google.com/drive/folders/16ivqzz1Q0gcTqWEcUwUzpLNX8Frj-7KO?usp=sharing" target="_blank" class="flex flex-col items-center justify-center aspect-video rounded-lg border-2 border-dashed border-slate-700 hover:border-gold transition bg-slate-800/30 group">
+<i data-lucide="folder-open" class="text-gold mb-2 group-hover:scale-110 transition"></i>
+<p class="text-xs font-bold uppercase tracking-widest text-slate-300">Full Portfolio Drive</p>
+</a>
+</div>
+</section>
+
+<!-- Terms of Engagement -->
+<section id="terms" class="mb-32 bg-slate-900/40 p-12 rounded-2xl border border-white/5 shadow-inner">
+<h2 class="font-cinzel text-3xl mb-8 border-b border-gold/30 pb-4 uppercase tracking-widest text-center section-glow">Terms of Engagement</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col space-y-2 text-center">
+<span class="font-bold text-gold uppercase text-xs tracking-widest">Booking</span>
+<p class="text-sm text-slate-300">40% Advance to initiate project & equipment bookings.</p>
+</div>
+<div class="flex flex-col space-y-2 text-center">
+<span class="font-bold text-gold uppercase text-xs tracking-widest">Revisions</span>
+<p class="text-sm text-slate-300">3 rounds of minor changes included in base price.</p>
+</div>
+<div class="flex flex-col space-y-2 text-center">
+<span class="font-bold text-gold uppercase text-xs tracking-widest">Equipment</span>
+<p class="text-sm text-slate-300">Camera/Light rentals included for Delhi NCR locations Only.</p>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer id="contact" class="bg-[#020617] border-t border-white/5 py-24">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+<!-- Footer Branding & Info -->
+<div class="text-left">
+<h2 class="font-cinzel text-4xl md:text-6xl mb-4 tracking-tighter uppercase font-black brand-glow">
+Nakshatra Cinematics
+</h2>
+<p class="text-slate-400 font-medium text-[11px] md:text-xs tracking-widest mb-12">
+Delhi <span class="mx-2 text-gold">|</span> <span class="lowercase">nikhillmedia10@gmail.com</span>
+</p>
+
+<p class="text-slate-500 mb-12 max-w-sm italic text-sm border-l border-gold/30 pl-4">
+Elevate Your Production Value Today
+</p>
+
+<div class="flex space-x-8 text-[10px] uppercase tracking-[0.3em] text-slate-600">
+<a href="https://www.instagram.com/nikhil.k_140?igsh=cXNxYjVvbjRvazJq" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition">Instagram</a>
+<a href="https://www.linkedin.com/in/nikhil-kumar-02b1883aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition">LinkedIn</a>
+</div>
+</div>
+
+<!-- Contact Form Block -->
+<div id="contactFormBlock" class="bg-slate-900/40 p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-sm">
+<form id="contactForm" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="text-[9px] uppercase tracking-[0.2em] text-slate-500 ml-1">Name</label>
+<input type="text" placeholder="Your Name" class="bg-[#050b18]/60 border border-white/10 rounded px-4 py-4 text-sm focus:border-gold outline-none w-full text-white transition">
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase tracking-[0.2em] text-slate-500 ml-1">Email</label>
+<input type="email" placeholder="email@example.com" class="bg-[#050b18]/60 border border-white/10 rounded px-4 py-4 text-sm focus:border-gold outline-none w-full text-white transition">
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase tracking-[0.2em] text-slate-500 ml-1">Project Category</label>
+<select id="formCategory" class="bg-[#050b18]/60 border border-white/10 rounded px-4 py-4 text-sm focus:border-gold outline-none w-full appearance-none text-slate-300">
+<option value="Reels">Short-Form / Reels Editing</option>
+<option value="Podcast">Podcast Production (Shoot + Edit)</option>
+<option value="Standup">Standup Specials</option>
+<option value="Film">Full Scale Film Production</option>
+<option value="Sound">Post-Production & Sound Design</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase tracking-[0.2em] text-slate-500 ml-1">Project Vision</label>
+<textarea placeholder="Briefly describe your project, timeline, and budget..." rows="4" class="bg-[#050b18]/60 border border-white/10 rounded px-4 py-4 text-sm focus:border-gold outline-none w-full text-white transition"></textarea>
+</div>
+<!-- Highlighted Initiate Inquiry Button -->
+<button type="submit" class="w-full font-black uppercase py-5 rounded-lg button-highlight tracking-[0.25em] text-sm">
+Initiate Inquiry
+</button>
+</form>
+</div>
+</div>
+
+<div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-[9px] uppercase tracking-[0.3em] text-slate-700 text-center">
+&copy; 2026 Nakshatra Cinematics.
+</div>
+</footer>
+
+<script>
+lucide.createIcons();
+
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+e.preventDefault();
+const messageBox = document.createElement('div');
+messageBox.className = 'fixed bottom-10 right-10 bg-gold text-[#050b18] px-8 py-4 rounded font-bold shadow-2xl z-[100] transition-all animate-bounce';
+messageBox.textContent = 'Inquiry Sent to Nakshatra Team!';
+document.body.appendChild(messageBox);
+setTimeout(() => {
+messageBox.style.opacity = '0';
+setTimeout(() => messageBox.remove(), 500);
+}, 4000);
+e.target.reset();
+});
+</script>
+</body>
+</html>
