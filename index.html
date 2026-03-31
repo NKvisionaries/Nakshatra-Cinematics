@@ -68,6 +68,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Tagline Animation */
+        .animate-tagline {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(15px);
+        }
+        .reveal-active .animate-tagline {
+            animation: taglineReveal 2s ease-out forwards;
+            animation-delay: 4.2s;
+        }
+        @keyframes taglineReveal {
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+
         .nav-anim {
             opacity: 0;
             transform: translateY(-20px);
@@ -173,12 +191,12 @@
         .marquee-content {
             display: inline-flex;
             animation: marquee 80s linear infinite; 
-            width: max-content; /* Ensure container matches content width exactly */
+            width: max-content;
         }
         .client-logo {
             height: 70px;
             width: auto;
-            margin: 0 3rem; /* Perfectly even spacing */
+            margin: 0 3rem;
             filter: none; 
             opacity: 1;
             object-fit: contain;
@@ -253,7 +271,7 @@
                     <span class="block text-2xl md:text-3xl font-light text-gold brand-glow tracking-[0.6em] uppercase">CINEMATICS</span>
                 </div>
             </div>
-            <div class="reveal mt-12 flex flex-col items-center">
+            <div class="animate-tagline mt-12 flex flex-col items-center">
                 <div class="w-40 h-[2px] bg-gold mb-10 shadow-[0_0_10px_#D4AF37]"></div>
                 <p class="text-xs md:text-base font-light text-slate-300 max-w-4xl uppercase tracking-[0.25em] leading-relaxed text-center">
                     From vision to revision, from timeline to perfection,<br>
@@ -263,14 +281,15 @@
         </div>
     </section>
 
-    <!-- Page 3: The Founder -->
+    <!-- Page 3: The Founder (Story) -->
     <section id="founder" class="reveal min-h-screen flex items-center justify-center py-24 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="order-1 flex justify-center">
                 <div class="relative w-full aspect-[4/5] max-w-md group">
                     <div class="absolute inset-0 border-2 border-gold/30 -translate-x-4 translate-y-4 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
                     <div class="absolute inset-0 bg-slate-800 overflow-hidden shadow-2xl">
-                        <img src="" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Nikhil Founder">
+                        <!-- Updated Nikhil Founder Image Link -->
+                        <img src="https://drive.google.com/thumbnail?id=1uLLbfWJwGKUVkZyMW1nMItuybmJa3gvb&sz=w1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Nikhil Founder">
                     </div>
                 </div>
             </div>
@@ -336,7 +355,7 @@
             <h3 class="font-cinzel text-xl md:text-2xl font-bold section-glow tracking-wide text-center uppercase">With Nakshatra, your vision doesn’t just show, it shines.</h3>
         </section>
 
-        <!-- OUR SERVICES (Restored Minimal Design) -->
+        <!-- OUR SERVICES -->
         <section id="services-header" class="reveal mb-20 text-center">
             <div class="flex items-center justify-center space-x-6">
                 <div class="h-[1px] w-12 md:w-24 bg-gold/30"></div>
@@ -402,7 +421,7 @@
                 </a>
             </div>
 
-            <!-- CLIENT LOGOS (Original Color, Infinite Loop) -->
+            <!-- CLIENT LOGOS -->
             <div class="reveal mt-20">
                 <p class="font-cinzel font-black text-gold text-lg tracking-[0.3em] uppercase mb-12">Clients we have worked with</p>
                 <div class="marquee-container">
@@ -437,7 +456,7 @@
                         <img src="https://drive.google.com/thumbnail?id=1u4js3GIHWXniGKoUYvv_SLFk1WuPvFE3&sz=w500" class="client-logo" alt="Client">
                         <img src="https://drive.google.com/thumbnail?id=1wHc_VhKB0UsEDYN-HNGmlZQJhWmwgBA3&sz=w500" class="client-logo" alt="Client">
                         <img src="https://drive.google.com/thumbnail?id=1xjRBYMP5Yzc-FpuAJxXijpdd3sDEtcEi&sz=w500" class="client-logo" alt="Client">
-                        <!-- Set 2 (Identical for loop) -->
+                        <!-- Set 2 -->
                         <img src="https://drive.google.com/thumbnail?id=1-wFReiax5xZ_3iV_oc8lJSv4zqpQzWZ-&sz=w500" class="client-logo" alt="Client">
                         <img src="https://drive.google.com/thumbnail?id=10MIwFNnZLPtUe1QoZvarbUJ4Gc71dj2J&sz=w500" class="client-logo" alt="Client">
                         <img src="https://drive.google.com/thumbnail?id=167oVy1e_ej7UkxyCeaerac_J-Yhk2Uev&sz=w500" class="client-logo" alt="Client">
@@ -480,21 +499,18 @@
             <div class="reveal text-left">
                 <h2 class="font-cinzel text-5xl md:text-7xl mb-6 tracking-tighter uppercase font-black section-glow text-gold">Nakshatra</h2>
                 <p class="font-bold text-xs tracking-[0.4em] mb-12 uppercase text-gold">Delhi NCR | nikhillmedia10@gmail.com</p>
-                
                 <div class="mb-8">
                     <p class="font-cinzel font-black text-gold text-xs tracking-[0.3em] uppercase mb-4">FOLLOW US ON:</p>
                     <div class="flex space-x-12">
                         <a href="https://www.instagram.com/world_with_nakshatra/?hl=en" target="_blank" class="text-white hover:text-gold transition-all duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
-                        <!-- Footer Updated LinkedIn Link -->
                         <a href="https://www.linkedin.com/company/nk-visionaries/" target="_blank" class="text-white hover:text-gold transition-all duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
                     </div>
                 </div>
             </div>
-            
             <div id="contactFormBlock" class="reveal bg-[#050b18]/60 p-10 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md text-left">
                 <form id="contactForm" class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -533,7 +549,9 @@
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
         const brandObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('reveal-active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                }
             });
         }, { threshold: 0.5 });
         brandObserver.observe(document.getElementById('brand-reveal'));
