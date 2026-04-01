@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakshatra | Post-Production Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --navy-deep: #050b18;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--navy-deep);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .text-gold { color: var(--primary-gold); }
+        
+        .brand-glow {
+            color: var(--primary-gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.9), 
+                         0 0 30px rgba(212, 175, 55, 0.5),
+                         0 0 45px rgba(212, 175, 55, 0.3);
+        }
+        .section-glow {
+            color: var(--primary-gold);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Letter Reveal Animation */
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            filter: blur(15px);
+        }
+        .reveal-active .letter {
+            animation: letterReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes letterReveal {
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        .letter:nth-child(1) { animation-delay: 0.3s; }
+        .letter:nth-child(2) { animation-delay: 0.6s; }
+        .letter:nth-child(3) { animation-delay: 0.9s; }
+        .letter:nth-child(4) { animation-delay: 1.2s; }
+        .letter:nth-child(5) { animation-delay: 1.5s; }
+        .letter:nth-child(6) { animation-delay: 1.8s; }
+        .letter:nth-child(7) { animation-delay: 2.1s; }
+        .letter:nth-child(8) { animation-delay: 2.4s; }
+        .letter:nth-child(9) { animation-delay: 2.7s; }
+
+        .reveal-active .animate-cinematics {
+            opacity: 0;
+            transform: translateY(-80px);
+            animation: cinematicsReveal 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 3.2s;
+        }
+        @keyframes cinematicsReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tagline Animation */
+        .animate-tagline {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(15px);
+        }
+        .reveal-active .animate-tagline {
+            animation: taglineReveal 2s ease-out forwards;
+            animation-delay: 4.2s;
+        }
+        @keyframes taglineReveal {
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+
+        .nav-anim {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: navReveal 1s ease-out forwards;
+        }
+        @keyframes navReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .service-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        /* Showcase Horizontal Slider with Mota Dot */
+        .showcase-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding-bottom: 3rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        .showcase-slider::-webkit-scrollbar {
+            height: 12px;
+        }
+        .showcase-slider::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+        }
+        .showcase-slider::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 20px;
+            border: 2px solid var(--navy-deep);
+            cursor: pointer;
+        }
+        
+        .video-item {
+            flex: 0 0 85%;
+            scroll-snap-align: center;
+        }
+        @media (min-width: 768px) {
+            .video-item { flex: 0 0 60%; }
+        }
+        @media (min-width: 1024px) {
+            .video-item { flex: 0 0 45%; }
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Fixed Seamless Infinite Logo Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 3rem 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 80s linear infinite; 
+            width: max-content;
+        }
+        .client-logo {
+            height: 70px;
+            width: auto;
+            margin: 0 3rem;
+            filter: none; 
+            opacity: 1;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+        .client-logo:hover {
+            transform: scale(1.1) translateY(-5px);
+        }
+
+        .button-highlight {
+            border: 1px solid var(--primary-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+        .button-highlight:hover {
+            background: var(--primary-gold);
+            color: #000 !important;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+        }
+        
+        .form-submit-btn {
+            background-color: var(--primary-gold);
+            color: #000000;
+            font-weight: 900;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <nav class="fixed w-full z-50 bg-[#050b18]/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <a href="https://www.instagram.com/world_with_nakshatra/?hl=en" target="_blank" class="text-white hover:text-gold transition-all duration-300 nav-anim" style="animation-delay: 0.2s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/nikhil-kumar-02b1883aa" target="_blank" class="text-white hover:text-gold transition-all duration-300 nav-anim" style="animation-delay: 0.4s;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+            <div class="nav-anim" style="animation-delay: 0.6s;">
+                <a href="#contactFormBlock" class="font-cinzel text-[10px] md:text-xs font-bold uppercase tracking-widest px-6 py-3 rounded button-highlight text-gold">
+                    Initiate Inquiry
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page 1: Hero Video Landing -->
+    <section id="hero-landing" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#050b18]"></div>
+        <div class="relative z-10 text-center">
+            <div class="w-1 h-20 bg-gradient-to-b from-gold to-transparent mx-auto animate-bounce opacity-50"></div>
+            <p class="font-cinzel text-gold text-xs tracking-[0.8em] mt-4 uppercase opacity-50">Scroll to Enter</p>
+        </div>
+    </section>
+
+    <!-- Page 2: Nakshatra Brand Reveal -->
+    <section id="brand-reveal" class="relative h-screen flex items-center justify-center bg-[#050b18] overflow-hidden">
+        <div class="text-center px-6 w-full flex flex-col items-center justify-center">
+            <div class="relative inline-block mb-4" id="animation-trigger">
+                <h1 class="font-cinzel leading-none relative z-10">
+                    <span class="block text-6xl md:text-9xl font-black brand-glow tracking-tighter uppercase mb-2">
+                        <span class="letter">N</span><span class="letter">A</span><span class="letter">K</span><span class="letter">S</span><span class="letter">H</span><span class="letter">A</span><span class="letter">T</span><span class="letter">R</span><span class="letter">A</span>
+                    </span>
+                </h1>
+                <div class="animate-cinematics">
+                    <span class="block text-2xl md:text-3xl font-light text-gold brand-glow tracking-[0.6em] uppercase">CINEMATICS</span>
+                </div>
+            </div>
+            <div class="animate-tagline mt-12 flex flex-col items-center">
+                <div class="w-40 h-[2px] bg-gold mb-10 shadow-[0_0_10px_#D4AF37]"></div>
+                <p class="text-xs md:text-base font-light text-slate-300 max-w-4xl uppercase tracking-[0.25em] leading-relaxed text-center">
+                    From vision to revision, from timeline to perfection,<br>
+                    we craft every frame with passion, precision, and direction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: The Founder (Story) -->
+    <section id="founder" class="reveal min-h-screen flex items-center justify-center py-24 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-1 flex justify-center">
+                <div class="relative w-full aspect-[4/5] max-w-md group">
+                    <div class="absolute inset-0 border-2 border-gold/30 -translate-x-4 translate-y-4 group-hover:-translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 bg-slate-800 overflow-hidden shadow-2xl">
+                        <!-- Updated Nikhil Founder Image Link -->
+                        <img src="https://drive.google.com/thumbnail?id=1uLLbfWJwGKUVkZyMW1nMItuybmJa3gvb&sz=w1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Nikhil Founder">
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8 order-2 font-cinzel text-left text-gold">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter">The Origin</h2>
+                <div class="w-20 h-[1px] bg-gold/50"></div>
+                <div class="space-y-6 text-base md:text-lg leading-relaxed font-normal">
+                    <p>I’m Nikhil. I was supposed to be a Data Analyst or an AI Engineer, but life took its own unexpected course. Excel, code, salary credit… life sorted.</p>
+                    <p>Ghar walon ka clear vision — Gov’t Job = Life Set. And relatives… they had already placed me in the Netflix “Nothing Will Happen” category: “Isse kya hi ho jayega…” “Ye kya kar lega…”</p>
+                    <p>But I thought — if everyone already expects nothing, then what is the loss in taking a risk? So I switched off Safe Mode and turned on Creative Mode.</p>
+                    <p>In the beginning, there was no clarity, no guarantee — just a daily urge to upgrade. Day by day… the scene started to shift. Today, everything isn't perfect — but at least the story is interesting.</p>
+                    <div class="pt-4 border-t border-gold/20">
+                        <p class="text-2xl md:text-3xl font-black tracking-wide">And now the plan is simple — no small steps. Directly the Big Game.</p>
+                    </div>
+                    <div class="space-y-2 pt-6">
+                        <p class="text-xl font-bold tracking-[0.3em] uppercase">Welcome to Nakshatra</p>
+                        <p class="text-sm opacity-60 uppercase tracking-widest">Your ultimate destination for next-level entertainment</p>
+                        <p class="font-bold italic mt-4">Abhi toh bas trailer hai… picture abhi baaki hai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Defining the Craft -->
+    <section id="the-craft" class="reveal min-h-screen py-24 px-6 bg-[#030812]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-cinzel text-4xl md:text-6xl font-black text-gold uppercase tracking-[0.2em] section-glow">Understanding the Craft</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-cinzel text-gold">
+                <div class="space-y-8 text-left">
+                    <div class="border-l-2 border-gold/30 pl-6 py-2">
+                        <h3 class="text-2xl font-bold uppercase mb-2">Cinematographer vs Film Editor</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">A Cinematographer paints with light and cameras on set. But a Film Editor is the final storyteller. While one captures the moments, the other breathes life into them by shaping the narrative pace.</p>
+                    </div>
+                    <div class="border-l-2 border-gold/30 pl-6 py-2">
+                        <h3 class="text-2xl font-bold uppercase mb-2">Video Editor vs Motion Designer</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">A Video Editor handles the flow, logic, and continuity of raw footage. A Motion Graphic Artist creates elements that didn't exist—adding dynamic typography and animated assets to elevate data into high-end cinema.</p>
+                    </div>
+                </div>
+                <div class="space-y-8 text-left">
+                    <div class="border-l-2 border-gold/30 pl-6 py-2">
+                        <h3 class="text-2xl font-bold uppercase mb-2">Sound Design vs Sound Engineer</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">Sound Design is the creative art of choosing the perfect "vibe". A Sound Design Engineer is the technical master who mixes and masters these layers to ensure every whisper is perfectly balanced.</p>
+                    </div>
+                    <div class="border-l-2 border-gold/30 pl-6 py-2">
+                        <h3 class="text-2xl font-bold uppercase mb-2">Concept-Driven Production</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">At Nakshatra, we bridge these gaps. We architect the entire visual and auditory journey, ensuring that your vision is enhanced at every single frame.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-6 py-24">
+
+        <!-- About Us -->
+        <section id="about" class="reveal mb-40 text-center max-w-4xl mx-auto">
+            <h2 class="font-cinzel text-2xl md:text-4xl font-bold section-glow leading-tight mb-8">Turning your ideas into vision, crafting stories with precision — with Nakshatra.</h2>
+            <div class="w-16 h-[1px] bg-gold/50 mx-auto mb-8"></div>
+            <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-10 font-light text-center">Nakshatra is a group of creative professionals specializing in video editing, motion design, and concept-driven production with over 300+ successful collaborations.</p>
+            <h3 class="font-cinzel text-xl md:text-2xl font-bold section-glow tracking-wide text-center uppercase">With Nakshatra, your vision doesn’t just show, it shines.</h3>
+        </section>
+
+        <!-- OUR SERVICES -->
+        <section id="services-header" class="reveal mb-20 text-center">
+            <div class="flex items-center justify-center space-x-6">
+                <div class="h-[1px] w-12 md:w-24 bg-gold/30"></div>
+                <h2 class="font-cinzel text-4xl md:text-6xl font-black brand-glow uppercase tracking-[0.2em]">OUR SERVICES</h2>
+                <div class="h-[1px] w-12 md:w-24 bg-gold/30"></div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-40">
+            <div class="service-card p-10 rounded-xl reveal">
+                <h3 class="font-bebas text-3xl mb-4 section-glow uppercase">Short-Form & Motion Design</h3>
+                <ul class="text-slate-400 font-cinzel space-y-2 text-sm uppercase tracking-wider">
+                    <li>&bull; Cinematic Reels Editing</li>
+                    <li>&bull; High-Retention Content</li>
+                    <li>&bull; Dynamic Motion Posters</li>
+                    <li>&bull; Visual FX & Animation</li>
+                </ul>
+            </div>
+            <div class="service-card p-10 rounded-xl reveal" style="animation-delay: 0.2s;">
+                <h3 class="font-bebas text-3xl mb-4 section-glow uppercase">Podcast & Standup Specials</h3>
+                <ul class="text-slate-400 font-cinzel space-y-2 text-sm uppercase tracking-wider">
+                    <li>&bull; 4K Multi-Cam Setup</li>
+                    <li>&bull; Professional Audio Mastering</li>
+                    <li>&bull; Show Flow & Continuity</li>
+                    <li>&bull; Promotional Assets</li>
+                </ul>
+            </div>
+            <div class="service-card p-10 rounded-xl reveal" style="animation-delay: 0.4s;">
+                <h3 class="font-bebas text-3xl mb-4 section-glow uppercase">Post-Production & Sound</h3>
+                <ul class="text-slate-400 font-cinzel space-y-2 text-sm uppercase tracking-wider">
+                    <li>&bull; Sound Design & Foley</li>
+                    <li>&bull; Spatial Audio Mixing</li>
+                    <li>&bull; Color Grading (LOG/Rec.709)</li>
+                    <li>&bull; Narrative Pacing</li>
+                </ul>
+            </div>
+            <div class="service-card p-10 rounded-xl reveal" style="animation-delay: 0.6s;">
+                <h3 class="font-bebas text-3xl mb-4 section-glow uppercase">Full-Scale Production</h3>
+                <ul class="text-slate-400 font-cinzel space-y-2 text-sm uppercase tracking-wider">
+                    <li>&bull; Ad Films & Commercials</li>
+                    <li>&bull; Brand Documentaries</li>
+                    <li>&bull; Scripting & Storyboarding</li>
+                    <li>&bull; End-to-End Management</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CINEMATIC SHOWCASE -->
+        <section id="showcase" class="reveal mt-64 mb-16 text-center">
+            <h2 class="font-bebas text-7xl md:text-9xl mb-16 brand-glow uppercase">CINEMATIC SHOWCASE</h2>
+            <div class="showcase-slider">
+                <div class="video-item"><div class="video-container"><iframe src="https://drive.google.com/file/d/1RHsMjeEr-GbPd6Nki2b_f_wCgO7d_hRI/preview" allow="autoplay"></iframe></div></div>
+                <div class="video-item"><div class="video-container"><iframe src="https://drive.google.com/file/d/1gxrZirwhBBxZDuPMiRLFr4WDF2V8_nP-/preview" allow="autoplay"></iframe></div></div>
+                <div class="video-item"><div class="video-container"><iframe src="https://drive.google.com/file/d/1tTsj1Kih2GospR0BSz2F4hPYFE_NdCzX/preview" allow="autoplay"></iframe></div></div>
+                <div class="video-item"><div class="video-container"><iframe src="https://drive.google.com/file/d/1ZeygqWYEMzBWtqSubgUWwAA2ANNsm0Ow/preview" allow="autoplay"></iframe></div></div>
+                <div class="video-item"><div class="video-container"><iframe src="https://drive.google.com/file/d/1qHyMgV1QZZRy1oAvNfCW-e3nSYm9Cn4t/preview" allow="autoplay"></iframe></div></div>
+            </div>
+
+            <!-- Open Cloud Archive Button -->
+            <div class="mt-20 mb-32">
+                <a href="https://drive.google.com/drive/folders/16ivqzz1Q0gcTqWEcUwUzpLNX8Frj-7KO" target="_blank" rel="noopener noreferrer" class="inline-block px-12 py-5 rounded-full border border-gold/40 text-gold font-black uppercase tracking-widest hover:bg-gold hover:text-black transition-all shadow-xl">
+                    OPEN CLOUD ARCHIVE
+                </a>
+            </div>
+
+            <!-- CLIENT LOGOS -->
+            <div class="reveal mt-20">
+                <p class="font-cinzel font-black text-gold text-lg tracking-[0.3em] uppercase mb-12">Clients we have worked with</p>
+                <div class="marquee-container">
+                    <div class="marquee-content">
+                        <!-- Set 1 -->
+                        <img src="https://drive.google.com/thumbnail?id=1-wFReiax5xZ_3iV_oc8lJSv4zqpQzWZ-&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=10MIwFNnZLPtUe1QoZvarbUJ4Gc71dj2J&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=167oVy1e_ej7UkxyCeaerac_J-Yhk2Uev&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1CFGCz6k-ixmDClqxVqBd4yZZFY-14gU-&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1FdnPRvT61zKM4CF7todFGUQse3FfISmc&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1GPdLuvu-9_-u5rDALf6z7bhmeKwHA7GC&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1KsmIgpGJ5LkcBshHFc2T8HDVG2q4Jnoj&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1KtmQ8-K2TbdUON8XijnkJ11mbK5T0AUx&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1MMTCaNsz_jvwK5dRTSrIdmxX5JI_AJVA&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1MX_xc9ocXNLFag_AdUcXN0wXdCOZOmL8&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1NEvgS_SD__CyIhncPcY1aDgIyOdx_kZJ&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1QZ3dXj8pzqFvZjU14WPVjA_rmis6WJwM&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1QluBJTgIi2owQnd_HmIwhfFgqTAGYrSz&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1SGl2Kx8NvXFsExGXNZ6pYKNi7riUY2uT&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1SQvi4ongU2LJ6e5gNQoOgi2fmMwjguwn&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1UmL8Od3bZqV7ruggj4e2BxO7ChoJQzYu&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1ZkLj2N4pYki8wZYvsl4CkqpRGykT1NDU&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1ZmzOpk_LbAaA-7Y-p-vgFj8D4dDTb46Q&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1_vxi_joaID_NlpxY2X0TSf7tpkLpNF-d&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1bNPRhEl-k00KqB1-BD3H_i6mriXFWaF7&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1g4bAohMex2ndccAWq_iFLA5VXwmqwIGr&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1hjZbo1GtGxrDIbVYYHmm0ZmZ8jw1R-Y5&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1iKo-NvZbVkPF97w14xozNL6Vi1yzXyqX&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1kLtMjK4cZ9Rulh5ulvN-cooDnPP13Fu4&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1sG6lioEj_dfPW3lwpQ-U1RHohfulccy4&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1sHLpUmv2JM46h5OSU0Gkcg3s6edbQmy1&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1u4js3GIHWXniGKoUYvv_SLFk1WuPvFE3&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1wHc_VhKB0UsEDYN-HNGmlZQJhWmwgBA3&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1xjRBYMP5Yzc-FpuAJxXijpdd3sDEtcEi&sz=w500" class="client-logo" alt="Client">
+                        <!-- Set 2 -->
+                        <img src="https://drive.google.com/thumbnail?id=1-wFReiax5xZ_3iV_oc8lJSv4zqpQzWZ-&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=10MIwFNnZLPtUe1QoZvarbUJ4Gc71dj2J&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=167oVy1e_ej7UkxyCeaerac_J-Yhk2Uev&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1CFGCz6k-ixmDClqxVqBd4yZZFY-14gU-&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1FdnPRvT61zKM4CF7todFGUQse3FfISmc&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1GPdLuvu-9_-u5rDALf6z7bhmeKwHA7GC&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1KsmIgpGJ5LkcBshHFc2T8HDVG2q4Jnoj&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1KtmQ8-K2TbdUON8XijnkJ11mbK5T0AUx&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1MMTCaNsz_jvwK5dRTSrIdmxX5JI_AJVA&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1MX_xc9ocXNLFag_AdUcXN0wXdCOZOmL8&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1NEvgS_SD__CyIhncPcY1aDgIyOdx_kZJ&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1QZ3dXj8pzqFvZjU14WPVjA_rmis6WJwM&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1QluBJTgIi2owQnd_HmIwhfFgqTAGYrSz&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1SGl2Kx8NvXFsExGXNZ6pYKNi7riUY2uT&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1SQvi4ongU2LJ6e5gNQoOgi2fmMwjguwn&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1UmL8Od3bZqV7ruggj4e2BxO7ChoJQzYu&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1ZkLj2N4pYki8wZYvsl4CkqpRGykT1NDU&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1ZmzOpk_LbAaA-7Y-p-vgFj8D4dDTb46Q&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1_vxi_joaID_NlpxY2X0TSf7tpkLpNF-d&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1bNPRhEl-k00KqB1-BD3H_i6mriXFWaF7&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1g4bAohMex2ndccAWq_iFLA5VXwmqwIGr&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1hjZbo1GtGxrDIbVYYHmm0ZmZ8jw1R-Y5&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1iKo-NvZbVkPF97w14xozNL6Vi1yzXyqX&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1kLtMjK4cZ9Rulh5ulvN-cooDnPP13Fu4&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1sG6lioEj_dfPW3lwpQ-U1RHohfulccy4&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1sHLpUmv2JM46h5OSU0Gkcg3s6edbQmy1&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1u4js3GIHWXniGKoUYvv_SLFk1WuPvFE3&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1wHc_VhKB0UsEDYN-HNGmlZQJhWmwgBA3&sz=w500" class="client-logo" alt="Client">
+                        <img src="https://drive.google.com/thumbnail?id=1xjRBYMP5Yzc-FpuAJxXijpdd3sDEtcEi&sz=w500" class="client-logo" alt="Client">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-[#020617] border-t border-white/5 py-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="reveal text-left">
+                <h2 class="font-cinzel text-5xl md:text-7xl mb-6 tracking-tighter uppercase font-black section-glow text-gold">Nakshatra</h2>
+                <p class="font-bold text-xs tracking-[0.4em] mb-12 uppercase text-gold">Delhi NCR | nikhillmedia10@gmail.com</p>
+                <div class="mb-8">
+                    <p class="font-cinzel font-black text-gold text-xs tracking-[0.3em] uppercase mb-4">FOLLOW US ON:</p>
+                    <div class="flex space-x-12">
+                        <a href="https://www.instagram.com/world_with_nakshatra/?hl=en" target="_blank" class="text-white hover:text-gold transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/nk-visionaries/" target="_blank" class="text-white hover:text-gold transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="contactFormBlock" class="reveal bg-[#050b18]/60 p-10 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md text-left">
+                <form id="contactForm" class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-2 text-left">
+                            <label class="text-[10px] uppercase tracking-widest text-gold ml-1 font-black">Identity</label>
+                            <input type="text" placeholder="Your Full Name" class="bg-black/40 border border-white/10 rounded-lg px-5 py-4 text-sm focus:border-gold outline-none w-full text-white placeholder:text-slate-600">
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <label class="text-[10px] uppercase tracking-widest text-gold ml-1 font-black">Direct Line</label>
+                            <input type="email" placeholder="Email Address" class="bg-black/40 border border-white/10 rounded-lg px-5 py-4 text-sm focus:border-gold outline-none w-full text-white placeholder:text-slate-600">
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-left">
+                        <label class="text-[10px] uppercase tracking-widest text-gold ml-1 font-black">Project Path</label>
+                        <select class="bg-black/60 border border-white/10 rounded-lg px-5 py-4 text-sm focus:border-gold outline-none w-full appearance-none text-gold font-bold cursor-pointer">
+                            <option value="Reels">Reels & Short-Form</option>
+                            <option value="Podcast">Podcast Production</option>
+                            <option value="Film">Ad Films & Commercials</option>
+                            <option value="Post">Sound & Post-Production</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full uppercase py-5 rounded-xl form-submit-btn tracking-[0.3em] text-sm text-black font-black">Initiate Inquiry</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-24 text-[10px] uppercase tracking-[0.8em] text-slate-800 font-bold">&copy; 2026 Nakshatra Cinematics</div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        const brandObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                }
+            });
+        }, { threshold: 0.5 });
+        brandObserver.observe(document.getElementById('brand-reveal'));
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const messageBox = document.createElement('div');
+            messageBox.className = 'fixed bottom-12 right-12 bg-gold text-black px-10 py-5 rounded-full font-black shadow-2xl z-[100] transition-all animate-bounce uppercase text-xs tracking-widest';
+            messageBox.textContent = 'Transmission Successful: Inquiry Sent';
+            document.body.appendChild(messageBox);
+            setTimeout(() => { messageBox.remove(); }, 5000);
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
